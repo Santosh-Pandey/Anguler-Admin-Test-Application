@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-display',
@@ -11,7 +12,7 @@ export class DisplayComponent implements OnInit {
   notes: any;
   config: any;
 
-  constructor(private httpClient: HttpClient) { 
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router) { 
 
     this.config = {
       itemsPerPage: 5,

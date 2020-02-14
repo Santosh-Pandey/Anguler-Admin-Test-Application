@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,6 +13,9 @@ import { DisplayComponent } from './display/display.component';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditComponent } from './edit/edit.component';
+import { DeleteComponent } from './delete/delete.component';
+
 
 
 @NgModule({
@@ -23,7 +26,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     FooterComponent,
     CreateComponent,
-    DisplayComponent
+    DisplayComponent,
+    EditComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     NgxPaginationModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

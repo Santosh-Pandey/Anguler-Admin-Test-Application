@@ -1,0 +1,59 @@
+<div class="login-page">
+<div class="login-box">
+    <div class="login-logo">
+      <a><b>Login </b>into Application</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        
+        <div class="alert alert-danger" role="alert" *ngIf="iserror==1" >
+            {{errormsg}}
+        </div>
+        
+        <p class="login-box-msg">Sign in to start your session</p>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Username" formControlName="username" [ngClass]="{ 'is-invalid': submitted &amp;&amp; loginForm.controls.username.errors }">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="submitted &amp;&amp; loginForm.controls.username.errors" class="text-danger">
+            <div *ngIf="loginForm.controls.username.errors.required">Username is required</div>
+          </div>  
+
+
+
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted &amp;&amp; loginForm.controls.password.errors }">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="submitted &amp;&amp; loginForm.controls.password.errors" class="text-danger">
+            <div *ngIf="loginForm.controls.password.errors.required">Password is required</div>
+          </div>  
+
+
+
+          <div class="social-auth-links text-center mb-3">
+            <button class="btn btn-block btn-primary">
+               Sign in using Credintials
+            </button>
+           
+          </div>
+        </form>
+  
+    
+      </div>
+      <!-- /.login-card-body -->
+    </div>
+  </div>
+ 
+  </div>
+

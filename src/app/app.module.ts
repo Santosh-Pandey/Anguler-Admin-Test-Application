@@ -15,7 +15,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './edit/edit.component';
 import { DeleteComponent } from './delete/delete.component';
-
+import { LoginComponent } from './login/login.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
 @NgModule({
@@ -28,7 +29,9 @@ import { DeleteComponent } from './delete/delete.component';
     CreateComponent,
     DisplayComponent,
     EditComponent,
-    DeleteComponent
+    DeleteComponent,
+    LoginComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

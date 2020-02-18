@@ -68,7 +68,7 @@
                 <div class="form-group col-md-6">
                   <label for="inputPassword4">Language</label>
                   <input type="text" class="form-control" formControlName="language" [(ngModel)] = "note_record.other_info.language" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.language.errors }">
-                  <div *ngIf="submitted &amp;&amp; registerForm.language.contect_no.errors" class="text-danger">
+                  <div *ngIf="submitted &amp;&amp; registerForm.controls.language.errors" class="text-danger">
                     <div *ngIf="registerForm.controls.language.errors.required">Language No is required</div>
                 </div>  
                 

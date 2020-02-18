@@ -1,9 +1,9 @@
 
-<app-header></app-header>
-<app-sidebar></app-sidebar>
-    
+
+<app-header *ngIf="showHead"></app-header>
+<app-sidebar *ngIf="showHead"></app-sidebar>
     <router-outlet></router-outlet>
+<app-footer *ngIf="showHead"></app-footer>
 
 
-<app-footer></app-footer>
 

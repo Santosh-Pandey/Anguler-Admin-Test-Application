@@ -1,3 +1,5 @@
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { LoginComponent } from './login/login.component';
 import { DeleteComponent } from './delete/delete.component';
 import { EditComponent } from './edit/edit.component';
 import { DisplayComponent } from './display/display.component';
@@ -7,13 +9,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'create', component: CreateComponent},
   {path: 'display', component: DisplayComponent},
   {path: 'edit/:id', component: EditComponent},
-  {path: 'delete/:id', component: DeleteComponent}
-
+  {path: 'delete/:id', component: DeleteComponent},
+  {path: 'login', component: LoginComponent},
+  {path: '**', component: PagenotfoundComponent}
 ];
 
 @NgModule({

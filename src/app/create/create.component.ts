@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-create',
@@ -14,9 +15,11 @@ export class CreateComponent implements OnInit {
   submitted = false;
 
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private sess: SessionService) { }
 
   ngOnInit(): void {
+    // Check User Login
+    this.sess.checkLogin();
 
     this.registerForm = this.formBuilder.group({
       first_name: ['', Validators.required],

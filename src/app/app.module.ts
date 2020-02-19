@@ -17,6 +17,8 @@ import { EditComponent } from './edit/edit.component';
 import { DeleteComponent } from './delete/delete.component';
 import { LoginComponent } from './login/login.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { SessionService } from './session.service';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     EditComponent,
     DeleteComponent,
     LoginComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     ReactiveFormsModule,
     RouterModule
   ],
-  providers: [],
+  providers: [SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

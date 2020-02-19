@@ -3,12 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
@@ -16,9 +18,12 @@ export class LoginComponent implements OnInit {
   iserror: any = 0;
   errormsg: any;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router,  private sess: SessionService) {}
 
   ngOnInit(): void {
+
+    this.sess.islogin();
+
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]

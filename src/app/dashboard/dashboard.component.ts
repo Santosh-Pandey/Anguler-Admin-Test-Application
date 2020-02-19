@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,13 +10,10 @@ import { Router } from "@angular/router";
 export class DashboardComponent implements OnInit {
 
   token: any;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private sess: SessionService) { }
 
   ngOnInit(): void {
-    this.token = localStorage.getItem("token");
-    if(this.token == ''){
-      this.router.navigate(['/login']);
-    }
+    this.sess.checkLogin();
   }
 
 }

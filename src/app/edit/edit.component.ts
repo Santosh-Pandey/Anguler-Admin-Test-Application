@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from "@angular/router";
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-edit',
@@ -17,13 +18,16 @@ export class EditComponent implements OnInit {
   note_id: any;
   note_record: any;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private route: ActivatedRoute) {
+  // tslint:disable-next-line: max-line-length
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private route: ActivatedRoute, private sess: SessionService) {
 
     // id is defined on app.routing.module.ts
     this.note_id = this.route.snapshot.params.id;
    }
 
   ngOnInit(): void {
+
+    this.sess.checkLogin();
 
     this.getNote();
     this.registerForm = this.formBuilder.group({

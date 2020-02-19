@@ -1,3 +1,4 @@
+import { LogoutComponent } from './logout/logout.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LoginComponent } from './login/login.component';
 import { DeleteComponent } from './delete/delete.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'edit/:id', component: EditComponent},
   {path: 'delete/:id', component: DeleteComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'logout', component: LogoutComponent},
   {path: '**', component: PagenotfoundComponent}
 ];
 

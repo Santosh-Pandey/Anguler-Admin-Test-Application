@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-display',
@@ -12,7 +13,7 @@ export class DisplayComponent implements OnInit {
   notes: any;
   config: any;
 
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router) { 
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router, private sess: SessionService) { 
 
     this.config = {
       itemsPerPage: 5,
@@ -23,7 +24,7 @@ export class DisplayComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.sess.checkLogin();
     this.getNote(1);
 
   }

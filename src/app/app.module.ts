@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { SessionService } from './session.service';
 import { LogoutComponent } from './logout/logout.component';
+import { FileuploadComponent } from './fileupload/fileupload.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { LogoutComponent } from './logout/logout.component';
     DeleteComponent,
     LoginComponent,
     PagenotfoundComponent,
-    LogoutComponent
+    LogoutComponent,
+    FileuploadComponent
   ],
   imports: [
     BrowserModule,

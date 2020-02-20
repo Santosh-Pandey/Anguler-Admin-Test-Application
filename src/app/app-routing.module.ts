@@ -1,3 +1,4 @@
+import { FileuploadComponent } from './fileupload/fileupload.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LoginComponent } from './login/login.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'delete/:id', component: DeleteComponent},
   {path: 'login', component: LoginComponent},
   {path: 'logout', component: LogoutComponent},
+  {path: 'upload', component: FileuploadComponent},
   {path: '**', component: PagenotfoundComponent}
 ];
 

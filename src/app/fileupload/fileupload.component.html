@@ -1,0 +1,78 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Display Data</h1>
+          </div><!-- /.col -->
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+  
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="card card-primary col-md-12">
+                <div class="page-header">
+                    <h3> </h3>
+                </div>
+
+              <div class="alert alert-success" role="alert" *ngIf="isResponse==1" >
+                  {{isMessage}}
+              </div>
+
+              <div class="alert alert-danger" role="alert" *ngIf="isError==1" >
+                {{isMessage}}
+              </div>
+
+
+                <form [formGroup]="myForm" (ngSubmit)="submit()">
+  
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input 
+                            formControlName="name"
+                            id="name" 
+                            type="text" 
+                            class="form-control">
+                        <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+                            <div *ngIf="f.name.errors.required">Name is required.</div>
+                            <div *ngIf="f.name.errors.minlength">Name should be 3 character.</div>
+                        </div>
+                    </div>
+                      
+                    <div class="form-group">
+                        <label for="file">File</label>
+                        <input 
+                            formControlName="file"
+                            id="file" 
+                            type="file" 
+                            class="form-control"
+                            (change)="onFileChange($event)">
+                        <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+                            <div *ngIf="f.file.errors.required">File is required.</div>
+                        </div>
+                    </div>
+                          
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </form>
+
+
+
+                 
+              </div>
+  
+        </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>

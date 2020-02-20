@@ -39,8 +39,9 @@
                             formControlName="name"
                             id="name" 
                             type="text" 
-                            class="form-control">
-                        <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+                            class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.name.errors }" >
+
+                        <div *ngIf="submitted &amp;&amp; f.name.touched && f.name.invalid" class="text-danger">
                             <div *ngIf="f.name.errors.required">Name is required.</div>
                             <div *ngIf="f.name.errors.minlength">Name should be 3 character.</div>
                         </div>
@@ -53,8 +54,9 @@
                             id="file" 
                             type="file" 
                             class="form-control"
-                            (change)="onFileChange($event)">
-                        <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+                            (change)="onFileChange($event)" [ngClass]="{ 'is-invalid': submitted && f.file.errors }" >
+
+                        <div *ngIf="submitted &amp;&amp; f.file.touched && f.file.invalid" class="text-danger">
                             <div *ngIf="f.file.errors.required">File is required.</div>
                         </div>
                     </div>

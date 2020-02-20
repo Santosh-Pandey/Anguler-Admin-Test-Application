@@ -15,12 +15,15 @@ export class FileuploadComponent implements OnInit {
   isError = 0;
   isMessage = '';
   submitted = false;
+  myForm: FormGroup;
 
-  myForm = new FormGroup({
+
+
+  /*myForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     file: new FormControl('', [Validators.required]),
     fileSource: new FormControl('', [Validators.required])
-  });
+  });*/
 
   constructor(
                 private formBuilder: FormBuilder, 
@@ -34,7 +37,6 @@ export class FileuploadComponent implements OnInit {
   }
 
   onFileChange(event) {
-  
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.myForm.patchValue({
@@ -46,12 +48,19 @@ export class FileuploadComponent implements OnInit {
 
   ngOnInit(): void {
     // Check User Login
-    this.sess.checkLogin()
+    this.sess.checkLogin();
+
+    this.myForm = this.formBuilder.group({
+        name: ['', Validators.required],
+        file: ['', Validators.required],
+        fileSource: ['', Validators.required]
+      });
+
   }
 
   submit(){
-
-    if (this.myForm.invalid) {
+    this.submitted = true;
+    if (this.myForm.invalid) { 
       return;
     }
     // tslint:disable-next-line: max-line-length
@@ -68,6 +77,8 @@ export class FileuploadComponent implements OnInit {
     this.http.post<any>('http://localhost:3001/uploadfile', formData)
       .subscribe(res => {
         console.log(res);
+        // Clear all form feilds after api response
+        this.myForm.reset();
         if(res.status == 1){
           this.isResponse = 1;
           this.isMessage = res.message;
@@ -78,12 +89,4 @@ export class FileuploadComponent implements OnInit {
       });
   }
 
-
-
-
-
-
-  private newMethod(): string | (string | number)[] {
-    return 'fileSource';
-  }
 }

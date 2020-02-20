@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
               this.errormsg = data.message;
               if(this.iserror == 0){
                 localStorage.setItem('token', data.token);
-                this.router.navigate(['/display']);
+                this.router.navigate(['/dashboard']);
               }
     });
   }

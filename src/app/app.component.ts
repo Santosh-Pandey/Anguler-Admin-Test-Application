@@ -25,7 +25,7 @@ export class AppComponent {
         }
       });
 
-      this.bnIdle.startWatching(60).subscribe((res) => {
+      this.bnIdle.startWatching(600).subscribe((res) => {
         if (res) {
             console.log ('session expired');
             localStorage.clear();

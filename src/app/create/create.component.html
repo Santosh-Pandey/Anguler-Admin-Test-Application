@@ -74,7 +74,15 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputEmail4">Country</label>
-                <input type="text" class="form-control" id="Country" placeholder="Country" formControlName="country">
+                <select class="form-control" id="Country"  formControlName="country" (change)="getCountry($event.target.value)" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.country.errors }">
+                  <option value="">Select</option>
+                  <option *ngFor="let cont of country">
+                    {{cont}}
+                  </option>
+                </select>
+                <div *ngIf="submitted &amp;&amp; registerForm.controls.country.errors" class="text-danger">
+                  <div *ngIf="registerForm.controls.country.errors.required">Country is required</div>
+                </div>
               </div>
 
             </div>

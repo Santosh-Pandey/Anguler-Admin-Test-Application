@@ -13,7 +13,7 @@ export class CreateComponent implements OnInit {
 
   registerForm: FormGroup;
   submitted = false;
-
+  country: any =  ["India", "Nepal", "Srilanka", "Bhutan"];
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private sess: SessionService) { }
 
@@ -27,7 +27,9 @@ export class CreateComponent implements OnInit {
       title: ['', Validators.required],
       contect_no: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      content: ['', [Validators.required, Validators.minLength(6)]]
+      country: ['', [Validators.required]],
+      content: ['', [Validators.required, Validators.minLength(6)]],
+      language: []
   });
 
   }
@@ -73,6 +75,10 @@ postData(jsonData: any){
             //this.registerForm.reset();
             this.router.navigate(['/display']);
   });
+}
+
+getCountry(data:any){
+  console.log(data);
 }
 
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
+import { BnNgIdleService } from 'bn-ng-idle'; // import it to your component
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent {
 
   showHead: boolean = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private bnIdle: BnNgIdleService) {
     // on route change to '/login', set the variable showHead to false
       router.events.forEach((event) => {
         if (event instanceof NavigationStart) {
@@ -23,6 +24,16 @@ export class AppComponent {
           }
         }
       });
+
+      this.bnIdle.startWatching(60).subscribe((res) => {
+        if (res) {
+            console.log ('session expired');
+            localStorage.clear();
+            this.router.navigate(['/display']);
+        }
+      });
+
+
     }
 
 

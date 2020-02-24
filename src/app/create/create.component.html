@@ -1,40 +1,40 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <div class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h3 class="m-0 text-dark">Create Record</h3>
-        </div><!-- /.col -->
 
-      </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
   </div>
   <!-- /.content-header -->
 
   <!-- Main content -->
-  <section class="content">
-    <div class="container-fluid">
-      <!-- Small boxes (Stat box) -->
-      <div class="row">
-        <div class="card card-primary col-md-12">
-          
+  <section class="content" data-select2-id="32">
+    <div class="container-fluid" data-select2-id="31">
+      <!-- SELECT2 EXAMPLE -->
+      <div class="card card-default">
+        <div class="card-header">
+          <h3 class="card-title">Create Record</h3>
+
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+
           <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputEmail4">Content</label>
 
-                <input type="text" formControlName="content" class="form-control" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.content.errors }" />
+                <input type="text" formControlName="content" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.content.errors }" />
                 <div *ngIf="submitted &amp;&amp; registerForm.controls.content.errors" class="text-danger">
-                    <div *ngIf="registerForm.controls.content.errors.required">Content is required</div>
+                  <div *ngIf="registerForm.controls.content.errors.required">Content is required</div>
                 </div>
 
               </div>
               <div class="form-group col-md-6">
                 <label for="inputPassword4">Title</label>
-                <input type="text" formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.title.errors }" />
+                <input type="text" formControlName="title" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.title.errors }" />
                 <div *ngIf="submitted &amp;&amp; registerForm.controls.title.errors" class="text-danger">
-                    <div *ngIf="registerForm.controls.title.errors.required">Content is required</div>
+                  <div *ngIf="registerForm.controls.title.errors.required">Content is required</div>
                 </div>
 
               </div>
@@ -43,16 +43,18 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputEmail4">First Name</label>
-                <input type="text" formControlName="first_name" class="form-control" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.first_name.errors }" />
+                <input type="text" formControlName="first_name" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.first_name.errors }" />
                 <div *ngIf="submitted &amp;&amp; registerForm.controls.first_name.errors" class="text-danger">
-                    <div *ngIf="registerForm.controls.first_name.errors.required">first_name is required</div>
+                  <div *ngIf="registerForm.controls.first_name.errors.required">first_name is required</div>
                 </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="inputPassword4">Last Name</label>
-                <input type="text" formControlName="last_name" class="form-control" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.last_name.errors }" />
+                <input type="text" formControlName="last_name" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.last_name.errors }" />
                 <div *ngIf="submitted &amp;&amp; registerForm.controls.last_name.errors" class="text-danger">
-                    <div *ngIf="registerForm.controls.last_name.errors.required">last_name is required</div>
+                  <div *ngIf="registerForm.controls.last_name.errors.required">last_name is required</div>
                 </div>
               </div>
             </div>
@@ -60,9 +62,10 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputEmail4">Contect No</label>
-                <input type="text" formControlName="contect_no" class="form-control" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.contect_no.errors }" />
+                <input type="text" formControlName="contect_no" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.contect_no.errors }" />
                 <div *ngIf="submitted &amp;&amp; registerForm.controls.contect_no.errors" class="text-danger">
-                    <div *ngIf="registerForm.controls.contect_no.errors.required">Contect No is required</div>
+                  <div *ngIf="registerForm.controls.contect_no.errors.required">Contect No is required</div>
                 </div>
               </div>
               <div class="form-group col-md-6">
@@ -74,7 +77,9 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputEmail4">Country</label>
-                <select class="form-control" id="Country"  formControlName="country" (change)="getCountry($event.target.value)" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.country.errors }">
+                <select class="form-control" id="Country" formControlName="country"
+                  (change)="getCountry($event.target.value)"
+                  [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.country.errors }">
                   <option value="">Select</option>
                   <option *ngFor="let cont of country">
                     {{cont}}
@@ -90,9 +95,10 @@
 
             <div class="form-group">
               <label for="inputAddress">Description</label>
-              <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.description.errors }" />
+              <input type="text" formControlName="description" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.description.errors }" />
               <div *ngIf="submitted &amp;&amp; registerForm.controls.description.errors" class="text-danger">
-                  <div *ngIf="registerForm.controls.description.errors.required">Description No is required</div>
+                <div *ngIf="registerForm.controls.description.errors.required">Description No is required</div>
               </div>
             </div>
 
@@ -102,12 +108,12 @@
 
 
         </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
 
+        </div>
       </div>
-      <!-- /.row -->
-      <!-- Main row -->
 
-      <!-- /.row (main row) -->
     </div><!-- /.container-fluid -->
   </section>
   <!-- /.content -->

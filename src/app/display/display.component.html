@@ -1,63 +1,63 @@
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Display Data</h1>
-          </div><!-- /.col -->
-          
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-  
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-            <div class="card card-primary col-md-12">
-                <div class="page-header">
-                    <h3> </h3>
-                  </div>
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Content</th>
-                        <th>Title</th>
-                        <th>Language</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <tr *ngFor="let mydata of notes.message | paginate: config">
-                        <td>{{ mydata.author_first_name }}</td>
-                        <td>{{ mydata.author_last_name }}</td>
-                        <td>{{ mydata.author_contact }}</td>
-                        <td>{{ mydata.title }}</td>
-                        <td>{{ mydata.author_first_name }}</td>
-                        <td><a [routerLink]="['/edit', mydata._id]" class="btn btn-info">Edit</a></td>
-                        <td><a [routerLink]="['/delete', mydata._id]" class="btn btn-danger">Delete</a></td>
-                        
-                    </tr>
-                    </tbody>
-                  </table>
-                 
-                  <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+  <!-- Content Header (Page header) -->
+  <div class="content-header"></div>
+  <!-- /.content-header -->
 
+  <!-- Main content -->
+  <section class="content" data-select2-id="32">
+    <div class="container-fluid" data-select2-id="31">
+      <!-- SELECT2 EXAMPLE -->
+      <div class="card card-default">
+        <div class="card-header">
+          <h3 class="card-title">Display Admin Data</h3>
 
-              </div>
-  
         </div>
-        <!-- /.row -->
-        <!-- Main row -->
+        <!-- /.card-header -->
+        <div class="card-body">
+
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Content</th>
+                <th>Title</th>
+                <th>Language</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let mydata of notes.message | paginate: config">
+                <td>{{ mydata.author_first_name }}</td>
+                <td>{{ mydata.author_last_name }}</td>
+                <td>{{ mydata.author_contact }}</td>
+                <td>{{ mydata.title }}</td>
+                <td>{{ mydata.author_first_name }}</td>
+                <td><a [routerLink]="['/edit', mydata._id]" class="btn btn-info">Edit</a></td>
+                <td><a [routerLink]="['/delete', mydata._id]" class="btn btn-danger">Delete</a></td>
+
+              </tr>
+            </tbody>
+          </table>
+
+        <br/>  
         
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
+            <pagination-controls  (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+         
+
+
+
+
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+      </div>
+
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>

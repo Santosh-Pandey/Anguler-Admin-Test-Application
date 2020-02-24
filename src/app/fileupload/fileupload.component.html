@@ -46,8 +46,12 @@
 
             <div class="form-group">
               <label for="file">File</label>
-              <input formControlName="file" id="file" type="file" class="form-control" (change)="onFileChange($event)"
-                [ngClass]="{ 'is-invalid': submitted && f.file.errors }">
+              
+                <div class="custom-file">
+                  <input formControlName="file" id="file" type="file" class="custom-file-input" (change)="onFileChange($event)"
+                  [ngClass]="{ 'is-invalid': submitted && f.file.errors }">
+                  <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>  
 
               <div *ngIf="submitted &amp;&amp; f.file.touched && f.file.invalid" class="text-danger">
                 <div *ngIf="f.file.errors.required">File is required.</div>

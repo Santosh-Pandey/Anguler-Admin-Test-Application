@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { SessionService } from '../session.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-create',
@@ -14,6 +15,7 @@ export class CreateComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   country: any =  ["India", "Nepal", "Srilanka", "Bhutan"];
+  apiUrl: any;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private sess: SessionService) { }
 
@@ -70,7 +72,8 @@ onSubmit(formAllData: any) {
 }
 
 postData(jsonData: any){
-  this.http.post<any>('http://localhost:3001/notes', jsonData).subscribe(data => {
+  this.apiUrl = environment.nodeAPIUrl;
+  this.http.post<any>(this.apiUrl + 'notes', jsonData).subscribe(data => {
             console.log(data);
             //this.registerForm.reset();
             this.router.navigate(['/display']);

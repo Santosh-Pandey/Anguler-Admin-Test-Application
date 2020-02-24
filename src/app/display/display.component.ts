@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SessionService } from '../session.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-display',
@@ -12,6 +13,7 @@ export class DisplayComponent implements OnInit {
 
   notes: any;
   config: any;
+  apiUrl: any;
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router, private sess: SessionService) { 
 
@@ -28,8 +30,9 @@ export class DisplayComponent implements OnInit {
     this.getNote(1);
 
   }
-  getNote(page:any = 1){
-    return this.httpClient.get<any>('http://localhost:3001/notes?pageNo='+page+'&size='+ this.config.itemsPerPage)
+  getNote(page: any = 1){
+    this.apiUrl = environment.nodeAPIUrl;
+    return this.httpClient.get<any>(this.apiUrl + 'notes?pageNo=' + page + '&size=' + this.config.itemsPerPage)
             .subscribe(response => {
               console.log(response);
               this.config.totalItems = response.pages * this.config.itemsPerPage;

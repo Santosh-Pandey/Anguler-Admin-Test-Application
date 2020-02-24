@@ -20,7 +20,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { SessionService } from './session.service';
 import { LogoutComponent } from './logout/logout.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
-import { BnNgIdleService } from 'bn-ng-idle'; // import bn-ng-idle service
+import { BnNgIdleService } from 'bn-ng-idle'; // import bn-ng-idle service for session
 
 
 @NgModule({

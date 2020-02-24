@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from "@angular/router";
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-delete',
@@ -10,11 +11,11 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class DeleteComponent implements OnInit {
 
-  note_id: any;
-
+  noteId: any;
+  apiUrl: any;
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { 
     // id is defined on app.routing.module.ts
-    this.note_id = this.route.snapshot.params.id;
+    this.noteId = this.route.snapshot.params.id;
   }
 
   ngOnInit(): void {
@@ -22,7 +23,8 @@ export class DeleteComponent implements OnInit {
   }
 
   deleteNote(){
-    return this.http.get<any>('http://localhost:3001/notesdelbyid?noteId='+this.note_id)
+    this.apiUrl = environment.nodeAPIUrl;
+    return this.http.get<any>(this.apiUrl + 'notesdelbyid?noteId=' + this.noteId)
             .subscribe(response => {
               console.log(response);
               this.router.navigate(['/display']);

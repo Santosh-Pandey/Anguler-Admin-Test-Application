@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
-import { BnNgIdleService } from 'bn-ng-idle'; // import it to your component
+import { BnNgIdleService } from 'bn-ng-idle'; // import it to your component for session checking idle
+import { environment } from '../environments/environment';
+
 
 @Component({
   selector: 'app-root',
@@ -11,6 +13,7 @@ export class AppComponent {
   title = 'myanguler';
 
   showHead: boolean = false;
+  sessTimeout: number;
 
   constructor(private router: Router, private bnIdle: BnNgIdleService) {
     // on route change to '/login', set the variable showHead to false
@@ -25,7 +28,12 @@ export class AppComponent {
         }
       });
 
-      this.bnIdle.startWatching(600).subscribe((res) => {
+
+      // Session time out  if any activity not present given time(1000 Sec.)
+
+      this.sessTimeout = environment.sessionTimeOut;
+
+      this.bnIdle.startWatching(this.sessTimeout).subscribe((res) => {
         if (res) {
             console.log ('session expired');
             localStorage.clear();

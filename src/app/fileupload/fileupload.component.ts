@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from "@angular/router";
 import { SessionService } from '../session.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-fileupload',
@@ -16,6 +17,7 @@ export class FileuploadComponent implements OnInit {
   isMessage = '';
   submitted = false;
   myForm: FormGroup;
+  apiUrl: any;
 
 
 
@@ -73,8 +75,9 @@ export class FileuploadComponent implements OnInit {
 
     const formData = new FormData();
     formData.append('myFile', this.myForm.get('fileSource').value);
+    this.apiUrl = environment.nodeAPIUrl;
 
-    this.http.post<any>('http://localhost:3001/uploadfile', formData)
+    this.http.post<any>(this.apiUrl + 'uploadfile', formData)
       .subscribe(res => {
         console.log(res);
         // Clear all form feilds after api response

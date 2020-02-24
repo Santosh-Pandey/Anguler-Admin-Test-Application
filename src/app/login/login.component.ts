@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
 import { SessionService } from '../session.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   iserror: any = 0;
   errormsg: any;
+  apiUrl: any;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router,  private sess: SessionService) {}
 
@@ -50,7 +52,8 @@ export class LoginComponent implements OnInit {
   }
 
   postData(jsonData: any){
-    this.http.post<any>('http://localhost:3001/login', jsonData).subscribe(data => {
+    this.apiUrl = environment.nodeAPIUrl;
+    this.http.post<any>(this.apiUrl + 'login', jsonData).subscribe(data => {
               console.log(data);
               this.iserror = data.error;
               this.errormsg = data.message;

@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from "@angular/router";
 import { SessionService } from '../session.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-edit',
@@ -17,6 +18,7 @@ export class EditComponent implements OnInit {
   submitted = false;
   note_id: any;
   note_record: any;
+  apiUrl: any;
 
   // tslint:disable-next-line: max-line-length
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private route: ActivatedRoute, private sess: SessionService) {
@@ -44,8 +46,9 @@ export class EditComponent implements OnInit {
   }
 
 
-  getNote(){
-    return this.http.get<any>('http://localhost:3001/notesbyid?noteId='+this.note_id)
+  getNote() {
+    this.apiUrl = environment.nodeAPIUrl;
+    return this.http.get<any>(this.apiUrl + 'notesbyid?noteId=' + this.note_id)
             .subscribe(response => {
               console.log(response);
               this.note_record = response;

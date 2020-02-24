@@ -38,12 +38,22 @@
           </div>
           <div *ngIf="submitted &amp;&amp; loginForm.controls.password.errors" class="text-danger">
             <div *ngIf="loginForm.controls.password.errors.required">Password is required</div>
-          </div>  
+          </div> 
+          
+          <div class="input-group mb-3">
+            
+            <re-captcha (resolved)="resolved($event)" siteKey="6Lfctt0SAAAAAPTLFH7OidYUERHNVhniLohMPL0J"></re-captcha>
+            
+          </div>
+          <div *ngIf="submitted" class="text-danger" id="captchaError">
+              
+          </div> 
 
+          
 
 
           <div class="social-auth-links text-center mb-3">
-            <button class="btn btn-block btn-primary">
+            <button class="btn btn-block btn-primary" id='mycaptcha'>
                Sign in using Credintials
             </button>
            

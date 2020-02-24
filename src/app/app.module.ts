@@ -21,7 +21,7 @@ import { SessionService } from './session.service';
 import { LogoutComponent } from './logout/logout.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
 import { BnNgIdleService } from 'bn-ng-idle'; // import bn-ng-idle service for session
-import { NgFlashMessagesModule } from 'ng-flash-messages';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import { NgFlashMessagesModule } from 'ng-flash-messages';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    NgFlashMessagesModule.forRoot()
+    RecaptchaModule
   ],
   providers: [SessionService, BnNgIdleService],
   bootstrap: [AppComponent]

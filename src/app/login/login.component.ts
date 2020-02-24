@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
 import { SessionService } from '../session.service';
 import { environment } from '../../environments/environment';
-import { NgFlashMessageService } from 'ng-flash-messages';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +21,7 @@ export class LoginComponent implements OnInit {
   apiUrl: any;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router,  private sess: SessionService, private ngFlashMessageService: NgFlashMessageService) {}
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router,  private sess: SessionService) {}
 
   ngOnInit(): void {
 
@@ -30,12 +29,20 @@ export class LoginComponent implements OnInit {
 
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      //captcha: ['', Validators.required],
     });
   }
 
   onSubmit(formAllData: any) {
     this.submitted = true;
+
+    var response = grecaptcha.getResponse();
+    if(response.length == 0) {
+        document.getElementById('captchaError').innerHTML = 'Captcha field is required';
+        return false;
+    }
+
     if (this.loginForm.invalid) {
         return;
     }
@@ -60,26 +67,17 @@ export class LoginComponent implements OnInit {
               this.iserror = data.error;
               this.errormsg = data.message;
 
-              this.ngFlashMessageService.showFlashMessage({
-                // Array of messages each will be displayed in new line
-                messages: ["Yah! i'm alive"], 
-                // Whether the flash can be dismissed by the user defaults to false
-                dismissible: true, 
-                // Time after which the flash disappears defaults to 2000ms
-                timeout: false,
-                // Type of flash message, it defaults to info and success, warning, danger types can also be used
-                type: 'danger'
-              });
-
-
-
-
               if(this.iserror == 0){
                 localStorage.setItem('token', data.token);
                 this.router.navigate(['/dashboard']);
               }
     });
   }
+
+resolved(captchaResponse: string) {
+   
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+}
 
 
 

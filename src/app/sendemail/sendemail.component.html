@@ -1,0 +1,73 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+  
+    </div>
+    <!-- /.content-header -->
+  
+    <!-- Main content -->
+    <section class="content" data-select2-id="32">
+      <div class="container-fluid" data-select2-id="31">
+        <!-- SELECT2 EXAMPLE -->
+        <div class="card card-default">
+          <div class="card-header">
+            <h3 class="card-title">Send Email</h3>
+  
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+              
+            <flash-messages></flash-messages>
+            
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">To</label>
+  
+                  <input type="text" formControlName="to" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.to.errors }" />
+                  <div *ngIf="submitted &amp;&amp; registerForm.controls.to.errors" class="text-danger">
+                    <div *ngIf="registerForm.controls.to.errors.required">To Email is required</div>
+                    <div *ngIf="registerForm.controls.to.errors.email">To Email must be a valid email address</div>
+                  </div>
+  
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Subject</label>
+                  <input type="text" formControlName="subject" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.subject.errors }" />
+                  <div *ngIf="submitted &amp;&amp; registerForm.controls.subject.errors" class="text-danger">
+                    <div *ngIf="registerForm.controls.subject.errors.required">Subject is required</div>
+                  </div>
+  
+                </div>
+              </div>
+  
+              
+  
+              <div class="form-group">
+                <label for="inputAddress">Email Body</label>
+                <textarea class="form-control" rows="3" formControlName="body" placeholder="Enter Email Body"
+                 [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.body.errors }"></textarea>
+
+                <div *ngIf="submitted &amp;&amp; registerForm.controls.body.errors" class="text-danger">
+                  <div *ngIf="registerForm.controls.body.errors.required">Email Body is required</div>
+                </div>
+              </div>
+  
+  
+              <button type="submit" class="btn btn-primary">Send Email</button>
+            </form>
+  
+  
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+  
+          </div>
+        </div>
+  
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>

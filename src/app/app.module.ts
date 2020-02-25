@@ -22,6 +22,9 @@ import { LogoutComponent } from './logout/logout.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
 import { BnNgIdleService } from 'bn-ng-idle'; // import bn-ng-idle service for session
 import { RecaptchaModule } from 'ng-recaptcha';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { SendemailComponent } from './sendemail/sendemail.component';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { RecaptchaModule } from 'ng-recaptcha';
     LoginComponent,
     PagenotfoundComponent,
     LogoutComponent,
-    FileuploadComponent
+    FileuploadComponent,
+    SendemailComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,9 @@ import { RecaptchaModule } from 'ng-recaptcha';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    RecaptchaModule
+    RecaptchaModule,
+    FlashMessagesModule.forRoot(),
+    Ng4LoadingSpinnerModule.forRoot()
   ],
   providers: [SessionService, BnNgIdleService],
   bootstrap: [AppComponent]

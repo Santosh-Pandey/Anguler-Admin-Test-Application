@@ -7,10 +7,13 @@
     <div class="card">
       <div class="card-body login-card-body">
         
-        <div class="alert alert-danger" role="alert" *ngIf="iserror==1" >
+        <!--<div class="alert alert-danger" role="alert" *ngIf="iserror==1" >
             {{errormsg}}
             
-        </div>
+        </div> -->
+        <flash-messages></flash-messages>
+
+        
         
         <p class="login-box-msg">Sign in to start your session</p>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">

@@ -27,6 +27,7 @@
     "jquery": "^3.4.1",
     "ng-flash-messages": "^0.3.0",
     "ng-recaptcha": "^5.0.0",
+    "ng4-loading-spinner": "^1.2.3",
     "ngx-pagination": "^5.0.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",

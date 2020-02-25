@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
 import { SessionService } from '../session.service';
 import { environment } from '../../environments/environment';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
   apiUrl: any;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router,  private sess: SessionService) {}
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router,  private sess: SessionService, private flashMessage: FlashMessagesService) {}
 
   ngOnInit(): void {
 
@@ -67,9 +68,12 @@ export class LoginComponent implements OnInit {
               this.iserror = data.error;
               this.errormsg = data.message;
 
-              if(this.iserror == 0){
+              if (this.iserror == 0) {
                 localStorage.setItem('token', data.token);
                 this.router.navigate(['/dashboard']);
+                this.flashMessage.show('Successfully Login', { cssClass: 'alert-success', timeout: 5000 });
+              } else {
+                this.flashMessage.show(this.errormsg, { cssClass: 'alert-danger', timeout: 2000 });
               }
     });
   }

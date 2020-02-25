@@ -80,12 +80,17 @@ export class FileuploadComponent implements OnInit {
     this.http.post<any>(this.apiUrl + 'uploadfile', formData)
       .subscribe(res => {
         console.log(res);
-        // Clear all form feilds after api response
+
+         // Clear form Value Without any Error
         this.myForm.reset();
-        if(res.status == 1){
+        Object.keys(this.myForm.controls).forEach(key => {
+           this.myForm.get(key).setErrors(null) ;
+         });
+
+        if (res.status == 1) {
           this.isResponse = 1;
           this.isMessage = res.message;
-        }else{
+        } else {
           this.isError = 1;
           this.isMessage = res.message;
         }

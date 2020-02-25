@@ -1,3 +1,4 @@
+import { SendemailComponent } from './sendemail/sendemail.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'logout', component: LogoutComponent},
   {path: 'upload', component: FileuploadComponent},
+  {path: 'sendemail', component: SendemailComponent},
   {path: '**', component: PagenotfoundComponent}
 ];
 

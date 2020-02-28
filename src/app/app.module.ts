@@ -26,6 +26,8 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { SendemailComponent } from './sendemail/sendemail.component';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { DynamicformComponent } from './dynamicform/dynamicform.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BootstrapmodelComponent } from './bootstrapmodel/bootstrapmodel.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { DynamicformComponent } from './dynamicform/dynamicform.component';
     LogoutComponent,
     FileuploadComponent,
     SendemailComponent,
-    DynamicformComponent
+    DynamicformComponent,
+    BootstrapmodelComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { DynamicformComponent } from './dynamicform/dynamicform.component';
     RouterModule,
     RecaptchaModule,
     FlashMessagesModule.forRoot(),
-    Ng4LoadingSpinnerModule.forRoot()
+    Ng4LoadingSpinnerModule.forRoot(),
+    NgbModule
   ],
   providers: [SessionService, BnNgIdleService],
   bootstrap: [AppComponent]

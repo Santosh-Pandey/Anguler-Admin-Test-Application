@@ -34,20 +34,12 @@ export class DynamicformComponent implements OnInit {
                       com_location: ['', Validators.required]
                     }
                   );
-
-                  console.log(this.registerForm.controls)
               }
 
 
 
     ngOnInit(): void {
     this.sess.checkLogin();
-
-    // this.registerForm = this.fb.group({
-    //   com_name: ['', Validators.required],
-    //   com_location: ['', Validators.required]
-    // });
-
 
   }
 
@@ -68,7 +60,7 @@ export class DynamicformComponent implements OnInit {
   }
 
   onRemoveRow(i: number){
-    const persons = this.formControl['person'] as FormArray;
+    const persons = this.formControl.person as FormArray;
     persons.removeAt(i);
 
   }

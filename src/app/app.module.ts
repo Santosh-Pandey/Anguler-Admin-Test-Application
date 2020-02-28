@@ -25,6 +25,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { SendemailComponent } from './sendemail/sendemail.component';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { DynamicformComponent } from './dynamicform/dynamicform.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
     PagenotfoundComponent,
     LogoutComponent,
     FileuploadComponent,
-    SendemailComponent
+    SendemailComponent,
+    DynamicformComponent
   ],
   imports: [
     BrowserModule,

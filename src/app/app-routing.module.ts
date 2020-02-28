@@ -10,6 +10,7 @@ import { CreateComponent } from './create/create.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { DynamicformComponent } from './dynamicform/dynamicform.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'logout', component: LogoutComponent},
   {path: 'upload', component: FileuploadComponent},
   {path: 'sendemail', component: SendemailComponent},
+  {path: 'dynamicform', component: DynamicformComponent},
   {path: '**', component: PagenotfoundComponent}
 ];
 

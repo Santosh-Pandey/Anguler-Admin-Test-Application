@@ -1,3 +1,4 @@
+import { DatatableComponent } from './datatable/datatable.component';
 import { SendemailComponent } from './sendemail/sendemail.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'sendemail', component: SendemailComponent},
   {path: 'dynamicform', component: DynamicformComponent},
   {path: 'openmodel', component: BootstrapmodelComponent},
+  {path: 'datatable', component: DatatableComponent},
   {path: '**', component: PagenotfoundComponent}
 ];
 

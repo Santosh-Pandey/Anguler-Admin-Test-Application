@@ -1,3 +1,4 @@
+import { DatatableComponent } from './datatable/datatable.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -46,7 +47,8 @@ import { BootstrapmodelComponent } from './bootstrapmodel/bootstrapmodel.compone
     FileuploadComponent,
     SendemailComponent,
     DynamicformComponent,
-    BootstrapmodelComponent
+    BootstrapmodelComponent,
+    DatatableComponent
   ],
   imports: [
     BrowserModule,

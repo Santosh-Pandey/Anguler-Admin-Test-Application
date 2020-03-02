@@ -60,9 +60,9 @@ export class FileuploadComponent implements OnInit {
 
   }
 
-  submit(){
+  submit() {
     this.submitted = true;
-    if (this.myForm.invalid) { 
+    if (this.myForm.invalid) {
       return;
     }
     // tslint:disable-next-line: max-line-length

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,23 +12,24 @@ export class SessionService {
 
   public checkLogin() {
     this.validtoken = localStorage.getItem('token');
-    
-    if(this.validtoken == '' || this.validtoken === null){
-       this.router.navigate(['/login']);
+
+    // tslint:disable-next-line: triple-equals
+    if (this.validtoken == '' || this.validtoken === null) {
+      this.router.navigate(['/login']);
     }
-  } 
+  }
 
   public logOut() {
     localStorage.clear();
     this.router.navigate(['/login']);
-  } 
+  }
 
-  public islogin(){
+  public islogin() {
     this.validtoken = localStorage.getItem('token');
-    //alert(this.validtoken);
+    // alert(this.validtoken);
 
-    if(this.validtoken != null){
-       this.router.navigate(['/dashboard']);
+    if (this.validtoken != null) {
+      this.router.navigate(['/dashboard']);
     }
   }
 

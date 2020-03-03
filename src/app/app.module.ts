@@ -29,6 +29,7 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { DynamicformComponent } from './dynamicform/dynamicform.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BootstrapmodelComponent } from './bootstrapmodel/bootstrapmodel.component';
+import {DataTablesModule} from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { BootstrapmodelComponent } from './bootstrapmodel/bootstrapmodel.compone
     RecaptchaModule,
     FlashMessagesModule.forRoot(),
     Ng4LoadingSpinnerModule.forRoot(),
-    NgbModule
+    NgbModule,
+    DataTablesModule
   ],
   providers: [SessionService, BnNgIdleService],
   bootstrap: [AppComponent]

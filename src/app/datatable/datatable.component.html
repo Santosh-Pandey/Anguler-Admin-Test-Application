@@ -17,12 +17,11 @@
           <!-- /.card-header -->
           <div class="card-body">
   
-  
             <div class="page-header">
               <h3> </h3>
             </div>
-  
-            <table id = "mydatatable" class="table table-bordered" >
+           
+            <table class="table table-bordered" datatable [dtOptions]="dtOptions">
                 <thead>
                   <tr>
                     <th>Firstname</th>
@@ -35,8 +34,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let mydata of notes">
-                    <td>{{ mydata.author_first_name }}</td>
+                    
+                  <tr *ngFor="let mydata of notes.data">
+                    
+                    <td>{{ mydata.author_first_name}}</td>
                     <td>{{ mydata.author_last_name }}</td>
                     <td>{{ mydata.author_contact }}</td>
                     <td>{{ mydata.title }}</td>

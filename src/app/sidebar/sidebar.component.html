@@ -24,7 +24,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a [routerLink]="['/dashboard']" class="nav-link active">
+            <a [routerLink]="['/dashboard']" [routerLinkActive]="['active']" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -33,7 +33,7 @@
            
 
           <li class="nav-item">
-            <a [routerLink]="['/create']"  class="nav-link">
+            <a [routerLink]="['/create']" [routerLinkActive]="['active']"  class="nav-link">
               <i class="nav-icon fas fa-user-plus"></i>
               <p>
                 Create Record
@@ -41,7 +41,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['/display']"  class="nav-link">
+            <a [routerLink]="['/display']" [routerLinkActive]="['active']"  class="nav-link">
               <i class="nav-icon fas fa-info-circle"></i>
               <p>
                 Display Record
@@ -49,7 +49,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['/upload']"  class="nav-link">
+            <a [routerLink]="['/upload']" [routerLinkActive]="['active']"  class="nav-link">
               <i class="nav-icon fas fa-upload"></i>
               <p>
                 File Upload
@@ -57,7 +57,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['/sendemail']"  class="nav-link">
+            <a [routerLink]="['/sendemail']" [routerLinkActive]="['active']"  class="nav-link">
               <i class="nav-icon far fa-paper-plane"></i>
               <p>
                 Send Email
@@ -65,7 +65,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['/dynamicform']"  class="nav-link">
+            <a [routerLink]="['/dynamicform']" [routerLinkActive]="['active']"  class="nav-link">
               <i class="nav-icon fab fa-angular"></i>
               <p>
                 Dynamic Form
@@ -73,7 +73,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['/openmodel']"  class="nav-link">
+            <a [routerLink]="['/openmodel']" [routerLinkActive]="['active']"  class="nav-link">
               <i class="nav-icon fas fa-arrows-alt"></i>
               <p>
                 Open Model
@@ -81,7 +81,7 @@
             </a>
           </li> 
           <li class="nav-item">
-            <a [routerLink]="['/datatable']"  class="nav-link">
+            <a [routerLink]="['/datatable']"  [routerLinkActive]="['active']" class="nav-link">
               <i class="nav-icon fas fa-th-list"></i>
               <p>
                 Data Table
@@ -89,7 +89,7 @@
             </a>
           </li> 
           <li class="nav-item">
-            <a [routerLink]="['/readcsv']"  class="nav-link">
+            <a [routerLink]="['/readcsv']" [routerLinkActive]="['active']"  class="nav-link">
               <i class="nav-icon fas fa-file-csv"></i>
               <p>
                 Bulk Operation

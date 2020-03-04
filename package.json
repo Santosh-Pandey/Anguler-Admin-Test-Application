@@ -24,6 +24,8 @@
     "angular-datatables": "^8.0.0",
     "angular-in-memory-web-api": "^0.9.0",
     "angular2-flash-messages": "^3.0.1",
+    "angular5-csv": "^0.2.11",
+    "angular7-csv": "^0.2.12",
     "bn-ng-idle": "^1.0.1",
     "bootstrap": "^4.4.1",
     "datatables.net": "^1.10.20",

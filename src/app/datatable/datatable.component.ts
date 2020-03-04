@@ -17,6 +17,7 @@ import { DataTablesModule } from 'angular-datatables';
 export class DatatableComponent implements OnInit {
   apiUrl: string;
   notes: any;
+  mynotes: any;
   dtOptions: DataTables.Settings = {};
   
 
@@ -43,14 +44,21 @@ export class DatatableComponent implements OnInit {
               console.log(response);
              // let formattedResult= JSON.stringify(response, null, 2);
               this.notes = response;
+
+              const arr = [];
+              for (const obj of this.notes.data) {
+                // console.log(obj);
+                arr.push({
+                  content: obj.content,
+                  title: obj.title,
+                  author_first_name: obj.author_first_name,
+                  author_last_name: obj.author_last_name,
+                  language: obj.other_info.language
+                });
+                this.mynotes = arr;
+              }
+
             });
-
-
-    /* this.httpClient.get(this.apiUrl + 'allnotes').subscribe((resp: Response) => {
-              let formattedResult= JSON.stringify(resp, null, 2);
-              console.log(formattedResult);
-              this.notes = formattedResult;
-    });*/
 
   }
 

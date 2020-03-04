@@ -29,21 +29,19 @@
                     <th>Content</th>
                     <th>Title</th>
                     <th>Language</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                   
                   </tr>
                 </thead>
                 <tbody>
                     
-                  <tr *ngFor="let mydata of notes.data">
+                  <tr *ngFor="let mydata of mynotes">
                     
                     <td>{{ mydata.author_first_name}}</td>
                     <td>{{ mydata.author_last_name }}</td>
-                    <td>{{ mydata.author_contact }}</td>
+                    <td>{{ mydata.content }}</td>
                     <td>{{ mydata.title }}</td>
-                    <td>{{ mydata.author_first_name }}</td>
-                    <td><a [routerLink]="['/edit', mydata._id]" class="btn btn-info">Edit</a></td>
-                    <td><a [routerLink]="['/delete', mydata._id]" class="btn btn-danger">Delete</a></td>
+                    <td>{{ mydata.language }}</td>
+                    
     
                   </tr>
                 </tbody>

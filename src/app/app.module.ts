@@ -31,6 +31,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BootstrapmodelComponent } from './bootstrapmodel/bootstrapmodel.component';
 import {DataTablesModule} from 'angular-datatables';
 import { ReadcsvComponent } from './readcsv/readcsv.component';
+import { ExporttocsvComponent } from './exporttocsv/exporttocsv.component';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import { ReadcsvComponent } from './readcsv/readcsv.component';
     DynamicformComponent,
     BootstrapmodelComponent,
     DatatableComponent,
-    ReadcsvComponent
+    ReadcsvComponent,
+    ExporttocsvComponent
   ],
   imports: [
     BrowserModule,

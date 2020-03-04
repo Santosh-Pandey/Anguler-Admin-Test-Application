@@ -1,3 +1,4 @@
+import { ExporttocsvComponent } from './exporttocsv/exporttocsv.component';
 import { ReadcsvComponent } from './readcsv/readcsv.component';
 import { DatatableComponent } from './datatable/datatable.component';
 import { SendemailComponent } from './sendemail/sendemail.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path: 'openmodel', component: BootstrapmodelComponent},
   {path: 'datatable', component: DatatableComponent},
   {path: 'readcsv', component: ReadcsvComponent},
+  {path: 'exportdata', component: ExporttocsvComponent},
   {path: '**', component: PagenotfoundComponent}
 ];
 

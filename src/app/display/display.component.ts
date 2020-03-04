@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SessionService } from '../session.service';
 import { environment } from '../../environments/environment';
+import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
 
 @Component({
   selector: 'app-display',
@@ -14,6 +15,18 @@ export class DisplayComponent implements OnInit {
   notes: any;
   config: any;
   apiUrl: any;
+
+  csvOptions = {
+    fieldSeparator: ',',
+    quoteStrings: '"',
+    decimalseparator: '.',
+    showLabels: true,
+    showTitle: true,
+    // title: 'Your Holiday List :',
+    useBom: true,
+    noDownload: false,
+    headers: ['Content', 'Title', 'First Name', 'Last Name', 'Language']
+  };
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router, private sess: SessionService) { 
 
@@ -44,6 +57,25 @@ export class DisplayComponent implements OnInit {
   pageChange(event) {
     this.config.currentPage = event;
     this.getNote(this.config.currentPage);
+  }
+
+  downloadCSV() {
+    const arr = [];
+    for (const obj of this.notes.message) {
+      // console.log(obj);
+      arr.push({
+        content: obj.content,
+        title: obj.title,
+        author_first_name: obj.author_first_name,
+        author_last_namentent: obj.author_last_namentent,
+        language: obj.other_info.language
+      });
+
+    }
+    console.log(arr);
+
+    // tslint:disable-next-line: no-unused-expression
+    new AngularCsv(arr, 'TestNoteData', this.csvOptions);
   }
 
 }

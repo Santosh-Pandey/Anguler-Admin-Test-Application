@@ -30,6 +30,7 @@ import { DynamicformComponent } from './dynamicform/dynamicform.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BootstrapmodelComponent } from './bootstrapmodel/bootstrapmodel.component';
 import {DataTablesModule} from 'angular-datatables';
+import { ReadcsvComponent } from './readcsv/readcsv.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {DataTablesModule} from 'angular-datatables';
     SendemailComponent,
     DynamicformComponent,
     BootstrapmodelComponent,
-    DatatableComponent
+    DatatableComponent,
+    ReadcsvComponent
   ],
   imports: [
     BrowserModule,

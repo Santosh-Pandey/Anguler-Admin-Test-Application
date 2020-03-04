@@ -1,3 +1,4 @@
+import { ReadcsvComponent } from './readcsv/readcsv.component';
 import { DatatableComponent } from './datatable/datatable.component';
 import { SendemailComponent } from './sendemail/sendemail.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'dynamicform', component: DynamicformComponent},
   {path: 'openmodel', component: BootstrapmodelComponent},
   {path: 'datatable', component: DatatableComponent},
+  {path: 'readcsv', component: ReadcsvComponent},
   {path: '**', component: PagenotfoundComponent}
 ];
 

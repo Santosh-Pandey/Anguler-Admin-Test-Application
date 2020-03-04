@@ -75,7 +75,7 @@ postData(jsonData: any){
   this.apiUrl = environment.nodeAPIUrl;
   this.http.post<any>(this.apiUrl + 'notes', jsonData).subscribe(data => {
             console.log(data);
-            //this.registerForm.reset();
+            // this.registerForm.reset();
             this.router.navigate(['/display']);
   });
 }

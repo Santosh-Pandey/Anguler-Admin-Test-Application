@@ -10,11 +10,14 @@
       <div class="card card-default">
         <div class="card-header">
           <h3 class="card-title">Display Admin Data</h3>
-
+          <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+              <button type="submit" class="btn btn-primary" (click)=downloadCSV()><i class="nav-icon fas fa-file-download"></i>  Export CSV</button>
+            </div>
+          </div>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-<button type="submit" class="btn btn-primary" (click)=downloadCSV()> Export CSV</button>
           <table class="table table-bordered">
             <thead>
               <tr>

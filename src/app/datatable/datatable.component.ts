@@ -5,7 +5,6 @@ import { SessionService } from '../session.service';
 import { environment } from '../../environments/environment';
 import * as $ from 'jquery';
 import 'datatables.net';
-import { DataTablesModule } from 'angular-datatables';
 
 
 
@@ -19,7 +18,7 @@ export class DatatableComponent implements OnInit {
   notes: any;
   mynotes: any;
   dtOptions: DataTables.Settings = {};
-  
+
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router, private sess: SessionService) { }
 
@@ -49,6 +48,7 @@ export class DatatableComponent implements OnInit {
               for (const obj of this.notes.data) {
                 // console.log(obj);
                 arr.push({
+                  id: obj._id,
                   content: obj.content,
                   title: obj.title,
                   author_first_name: obj.author_first_name,

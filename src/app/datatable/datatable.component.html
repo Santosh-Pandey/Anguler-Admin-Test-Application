@@ -21,7 +21,7 @@
               <h3> </h3>
             </div>
            
-            <table class="table table-bordered" datatable [dtOptions]="dtOptions">
+            <table class="table table-bordered" *ngIf="mynotes" datatable [dtOptions]="dtOptions">
                 <thead>
                   <tr>
                     <th>Firstname</th>
@@ -29,6 +29,8 @@
                     <th>Content</th>
                     <th>Title</th>
                     <th>Language</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                    
                   </tr>
                 </thead>
@@ -41,6 +43,8 @@
                     <td>{{ mydata.content }}</td>
                     <td>{{ mydata.title }}</td>
                     <td>{{ mydata.language }}</td>
+                    <td><a [routerLink]="['/edit', mydata.id]" class="btn btn-info">Edit</a></td>
+                    <td><a [routerLink]="['/delete', mydata.id]" class="btn btn-danger">Delete</a></td>
                     
     
                   </tr>

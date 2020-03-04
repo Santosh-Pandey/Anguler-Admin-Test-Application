@@ -6,7 +6,7 @@
     <!-- /.content-header -->
   
     <!-- Main content -->
-    <section class="content" data-select2-id="32">
+    <section class="content" data-select2-id="32" *ngIf="isReview!=1">
       <div class="container-fluid" data-select2-id="31">
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-default">
@@ -73,5 +73,70 @@
   
       </div><!-- /.container-fluid -->
     </section>
+
+
+    <section class="content" data-select2-id="32" *ngIf="isReview==1">
+      <div class="container-fluid" data-select2-id="31">
+        <!-- SELECT2 EXAMPLE -->
+        <div class="card card-default">
+          <div class="card-header">
+            <h3 class="card-title">Review Screen</h3>
+
+            <table class="table table-bordered">
+              <thead>                  
+                <tr>
+                  <th>Content</th>
+                  <th>Title</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Contect</th>
+                  <th>Language</th>
+                  <th>Country</th>
+                  <th>Description</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of csvRecords ; let i = index;">
+                  <td>{{item.Content}}</td>
+                  <td>{{item.Title}}</td>
+                  <td>{{item.FirstName}}</td>
+                  <td>{{item.LastName}}</td>
+                  <td>{{item.ContectNo}}</td>
+                  <td>{{item.Language}}</td>
+                  <td>{{item.Country}}</td>
+                  <td>{{item.Description}}</td>
+                  <td>
+                    <button (click)="deleteItem(i)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                  </td>
+                </tr>
+               
+              </tbody>
+            </table>
+            <button type="submit" class="btn btn-primary" (click)=finalsubmit()> Submit Record</button>
+  
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+          <div class="page-header">
+            <h3> </h3>
+          </div>
+  
+  
+  
+          
+  
+  
+  
+  
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+          </div>
+        </div>
+  
+      </div><!-- /.container-fluid -->
+    </section>
+
     <!-- /.content -->
   </div>

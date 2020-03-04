@@ -15,6 +15,7 @@ export class ReadcsvComponent implements OnInit {
   isMessage: any;
   isError: any;
   isResponse: any;
+  isReview: any;
   submitted = false;
   myForm: FormGroup;
   apiUrl: any;
@@ -137,7 +138,11 @@ export class ReadcsvComponent implements OnInit {
     if (this.myForm.invalid) {
       return;
     }
+    this.isReview = 1;
     // console.log(JSON.stringify(this.csvRecords));
+  }
+
+  finalsubmit() {
 
     for(let obj of this.csvRecords) {
       // console.log(obj.Content);
@@ -159,6 +164,7 @@ export class ReadcsvComponent implements OnInit {
 
     }
 
+    this.isReview = 0;
      // Clear form Value Without any Error
     this.myForm.reset();
     Object.keys(this.myForm.controls).forEach(key => {
@@ -168,6 +174,12 @@ export class ReadcsvComponent implements OnInit {
     this.isResponse = 1;
     this.isMessage = 'All Record Created Successfully';
 
+  }
+
+  deleteItem(i) {
+    // alert(i);
+    this.csvRecords.splice(i, 1);
+    // console.log(this.csvRecords);
   }
 
   postData(jsonData: any) {

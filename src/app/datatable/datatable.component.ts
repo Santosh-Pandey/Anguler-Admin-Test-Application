@@ -5,9 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SessionService } from '../session.service';
 import { environment } from '../../environments/environment';
 import * as $ from 'jquery';
-import 'datatables.net';
-
-
+// import 'datatables.net';
 
 @Component({
   selector: 'app-datatable',
@@ -37,14 +35,14 @@ export class DatatableComponent implements OnInit {
       processing: true,
       ordering: true,
       info: true,
-     /*dom: 'lBfrtip',
-     buttons: [
-      { extend: 'copy', className: 'btn btn-primary glyphicon glyphicon-duplicate' },
-      { extend: 'csv', className: 'btn btn-primary glyphicon glyphicon-save-file' },
-      { extend: 'excel', className: 'btn btn-primary glyphicon glyphicon-list-alt' },
-      { extend: 'pdf', className: 'btn btn-primary glyphicon glyphicon-file' },
-      { extend: 'print', className: 'btn btn-primary glyphicon glyphicon-print' }
-    ]*/
+      dom: "<'row'<'col-sm-3'l><'col-sm-6 text-center'B><'col-sm-3'f>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+      buttons: [
+                { extend: 'copy',  className: 'btn btn-outline-dark', text: '<i class="far fa-copy"> Copy</i>' },
+                { extend: 'csv',   className: 'btn btn-outline-dark', text: '<i class="fas fa-file-csv"> CSV</i>' },
+                { extend: 'excel', className: 'btn btn-outline-dark', text: '<i class="fas fa-file-excel"> Excel</i>' },
+                { extend: 'pdf',   className: 'btn btn-outline-dark', text: '<i class="fas fa-file-pdf"> PDF</i>' },
+                { extend: 'print', className: 'btn btn-outline-dark', text: '<i class="far fas fa-print"> Print</i>' }
+              ]
     };
 
   }

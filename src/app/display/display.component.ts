@@ -31,7 +31,7 @@ export class DisplayComponent implements OnInit {
   constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router, private sess: SessionService) { 
 
     this.config = {
-      itemsPerPage: 5,
+      itemsPerPage: 10,
       currentPage: 1,
       totalItems: 1
     };

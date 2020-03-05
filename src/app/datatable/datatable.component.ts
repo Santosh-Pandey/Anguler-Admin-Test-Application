@@ -1,3 +1,4 @@
+import { DayTable } from '@fullcalendar/core';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,8 +18,8 @@ export class DatatableComponent implements OnInit {
   apiUrl: string;
   notes: any;
   mynotes: any;
-  dtOptions: DataTables.Settings = {};
-
+ // dtOptions: DataTables.Settings = {};
+  dtOptions: any = {};
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router, private sess: SessionService) { }
 
@@ -28,9 +29,22 @@ export class DatatableComponent implements OnInit {
     this.getNote();
 
     this.dtOptions = {
+      paging: true,
       pagingType: 'full_numbers',
+      responsive: true,
       pageLength: 10,
-      processing: true
+      lengthChange: true,
+      processing: true,
+      ordering: true,
+      info: true,
+     /*dom: 'lBfrtip',
+     buttons: [
+      { extend: 'copy', className: 'btn btn-primary glyphicon glyphicon-duplicate' },
+      { extend: 'csv', className: 'btn btn-primary glyphicon glyphicon-save-file' },
+      { extend: 'excel', className: 'btn btn-primary glyphicon glyphicon-list-alt' },
+      { extend: 'pdf', className: 'btn btn-primary glyphicon glyphicon-file' },
+      { extend: 'print', className: 'btn btn-primary glyphicon glyphicon-print' }
+    ]*/
     };
 
   }

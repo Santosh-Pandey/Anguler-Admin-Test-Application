@@ -26,7 +26,7 @@
             "styles": [
               "src/styles.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/datatables.net-dt/css/jquery.dataTables.css"
+              "./src/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css"
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.min.js",
@@ -34,6 +34,15 @@
               "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/popper.js/dist/umd/popper.min.js",
               "./node_modules/datatables.net/js/jquery.dataTables.js",
+              "./node_modules/jszip/dist/jszip.js",
+              "./node_modules/datatables.net-buttons/js/dataTables.buttons.js",
+              "./node_modules/datatables.net-buttons/js/buttons.colVis.js",
+              "./node_modules/datatables.net-buttons/js/buttons.flash.js",
+              "./node_modules/datatables.net-buttons/js/buttons.html5.js",
+              "./node_modules/datatables.net-buttons/js/buttons.print.js",
+              "./src/assets/plugins/pdfmake/pdfmake.min.js",
+              "./src/assets/plugins/pdfmake/vfs_fonts.js",
+              "./src/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"
 
             ]
           },

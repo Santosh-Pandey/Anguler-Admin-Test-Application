@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  sessionTimeOut: 600, // in sec.
+  sessionTimeOut: 60, // in sec.
   nodeAPIUrl: 'http://localhost:3001/',
   //nodeAPIUrl: 'http://192.168.0.78:3001/'
 };

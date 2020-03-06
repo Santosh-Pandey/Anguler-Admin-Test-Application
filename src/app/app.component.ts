@@ -12,14 +12,17 @@ import { environment } from '../environments/environment';
 export class AppComponent {
   title = 'myanguler';
 
-  showHead: boolean = false;
+  showHead = false;
   sessTimeout: number;
 
   constructor(private router: Router, private bnIdle: BnNgIdleService) {
+
     // on route change to '/login', set the variable showHead to false
       router.events.forEach((event) => {
         if (event instanceof NavigationStart) {
-          if (event['url'] == '/login' || event['url'] == '/' || event['url'] == '') {
+
+          // tslint:disable-next-line: triple-equals
+          if (event.url == '/login' || event.url == '/' || event.url == '') {
             this.showHead = false;
           } else {
             // console.log("NU")
@@ -37,7 +40,7 @@ export class AppComponent {
         if (res) {
             console.log ('session expired');
             localStorage.clear();
-            this.router.navigate(['/display']);
+            this.router.navigate(['/login']);
         }
       });
 

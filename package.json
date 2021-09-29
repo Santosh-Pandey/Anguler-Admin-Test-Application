@@ -28,7 +28,7 @@
     "angular7-csv": "^0.2.12",
     "bn-ng-idle": "^1.0.1",
     "bootstrap": "^4.4.1",
-    "datatables.net": "^1.10.20",
+    "datatables.net": "^1.11.3",
     "datatables.net-buttons": "^1.6.1",
     "datatables.net-buttons-dt": "^1.6.1",
     "datatables.net-dt": "^1.10.20",
